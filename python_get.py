@@ -1,11 +1,22 @@
-import requests
+import requests as req
 
-url = "https://jsonplaceholder.typicode.com/posts/1"
+url = "https://portfolio.wealthmaker.in/wmapi_live/wealthmakerapikit.svc/generatetoken"
 
-response = requests.get(url)
+data = {
+    "Source": "7",
+    "UserId": "produser",
+    "Password": "5pAm(gHw"
+}
+try:
+    response = req.post(url, json = data)
 
-if response.status_code == 200 : 
-    print("Response Data", response.json())
+    if response.status_code == 200:
+        data = response.json()
+        print("\n\nData : ", data, "\n\n")
 
-else :
-    print(f"Failed to fetch data. status code : {response.status_code}")
+    else :
+        print(f"failed to fetch data : {response.status_code}")
+        print(f"Error : {response.text}")
+
+except Exception as err: 
+    print(f"Some Error has occured : {err}")
