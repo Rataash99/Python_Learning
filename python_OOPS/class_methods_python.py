@@ -10,7 +10,7 @@ class Employee:
     @classmethod
     def from_string(cls, string):
         name, age = string.split(",")
-        return cls(name, age)
+        return cls(name, int(age))
     
 emp1 = Employee.from_string("Rohit Singh, 24")
 
