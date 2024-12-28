@@ -1,18 +1,19 @@
 class Employee:
-    company = "Apple"
-    def __init__(self, _name):
-        self.name = _name
+    
+    def __init__(self, name, age):
+        self.name = name
+        self.age = age
 
     def get_details(self):
-        print(f"The name of the employee is {self.name}, and he works at {Employee.company}")
+        print(f"Name of the Employee is {self.name} and he/she is {self.age} Yr old")
 
     @classmethod
-    def change_company(cls, new_company):
-        cls.company = new_company
+    def from_string(cls, string):
+        name, age = string.split(",")
+        return cls(name, age)
+    
+emp1 = Employee.from_string("Rohit Singh, 24")
 
-ep1 = Employee("Rohit")
-ep1.get_details()
-
-Employee.change_company("Google")
-
-ep1.get_details()
+print("\n")
+print("name :",emp1.name, "age :",emp1.age)
+print("\n")
