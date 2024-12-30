@@ -12,8 +12,10 @@ try:
 
     if response.status_code == 200:
         data = response.json()
-        print("\n\nData : ", data, "\n\n")
-
+        print("\n\n")
+        for key, value in data.items():
+            print(f"{key} : {value}")
+        print("\n\n")
     else :
         print(f"failed to fetch data : {response.status_code}")
         print(f"Error : {response.text}")
