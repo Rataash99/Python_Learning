@@ -8,8 +8,11 @@ cursor = conn.cursor()
 cursor.execute("SELECT * FROM customers WHERE last_name = 'kumar'")
 print("Before updating :-\n", cursor.fetchall())
 
-cursor.execute("""UPDATE customers SET first_name = 'Naman' WHERE last_name = 'kumar'
-               """)
+
+cursor.execute(""" UPDATE customers SET first_name = 'Naman' WHERE last_name = 'kumar' """)
+cursor.execute(""" UPDATE customers SET first_name = 'Rashid' WHERE rowid = 7 """)
+cursor.execute("""UPDATE customers SET first_name = 'Noor' WHERE rowid = 8 """)
+cursor.execute(""" UPDATE customers SET first_name = 'Nikita' WHERE rowid = 9 """)
 conn.commit()
 
 cursor.execute("SELECT rowid, * FROM customers")
