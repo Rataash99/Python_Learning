@@ -4,7 +4,7 @@ conn = sqlite3.connect("./Sqlite_Database_practice/customer.db")
 
 cursor = conn.cursor()
 
-cursor.execute(""" DELETE from customers WHERE first_name = 'sonali' """)
+cursor.execute(""" DELETE FROM customers WHERE first_name = 'sonali' """)
 
 cursor.execute("SELECT rowid, * FROM customers")
 
