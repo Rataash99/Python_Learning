@@ -1,21 +1,31 @@
-class Employee:
-    def __init__(self, _id, _name, _occupation):
-        self.id = _id
-        self.name = _name
-        self.occupation = _occupation
+class Animal:
+    def __init__(self, sound, breed):
+        self.sound = sound
+        self.breed = breed
 
-    def show_details(self):
-        print(f"Employee details are :- \nid : {self.id} \nname : {self.name} \noccupation : {self.occupation}" )
+    def make_sound(self):
+        print(self.sound)
 
-class Programmer(Employee):
-    # def __init__(self, _language):
-    #     self.language = _language
+class Dog(Animal):
+    def __init__(self, name):
+        super("Woof-Woof", self.breed)
+        self.name = name
 
-    def show_language(self):
-        print(f"{self.name} uses {self.language}")
+    def make_sound(self):
+        print("Woof-Woof")
 
-em = Employee("2EA", "Rohit","Programmer")
-em.show_details()
+class Cat(Animal):
+    def __init__(self, name):
+        self.name = name
 
-prg = Programmer("2EA", "Rohit","Programmer")
-prg.show_details()
+    def make_sound(self):
+        print("Meow-Meow")
+
+dog = Dog("dogo")
+print(dog.name)
+print(dog.breed)
+dog.make_sound()
+
+cat = Cat("kitty")
+print(cat.name)
+cat.make_sound()
