@@ -2,20 +2,23 @@ import sqlite3
 
 # creating a table
 def create_table(db_url, db_name, entities):
+
+    # establish connection
     conn = sqlite3.connect(db_url)
-    placeholder = ", ".join(entities)
     cursor = conn.cursor()
 
+    # creating placeholder to be added
+    placeholder = ", ".join(entities)
+
+    # creating table
     cursor.execute(f"CREATE TABLE {db_name} ({placeholder})")
 
 
 # inserting a single row in table
 def insert_one(row_data, db_url, db_name):
 
-    # creating connection 
+    # establish connection
     conn = sqlite3.connect(db_url)
-    
-    # creating cursor
     cursor = conn.cursor()
 
     # insert in table
@@ -25,6 +28,8 @@ def insert_one(row_data, db_url, db_name):
     conn.close()
 
 def insert_many(data, db_url, db_name):
+
+    # establish connection
     conn = sqlite3.connect(db_url)
     cursor = conn.cursor()
 
@@ -45,38 +50,55 @@ def insert_many(data, db_url, db_name):
 
 # updating table row
 def update_table(entity, change, rid, db_url, db_name):
-    conn = sqlite3.connect(db_url)
 
+    # establishing connection
+    conn = sqlite3.connect(db_url)
     cursor = conn.cursor()
+
+    # updating table corresponding to rowid
     cursor.execute(f"UPDATE {db_name} SET {entity} = '{change}' WHERE rowid = {rid}")
 
     conn.commit()
     conn.close()
 
 def delete_table(db_url, db_name):
+
+    # establishing connection
     conn = sqlite3.connect(db_url)
 
     cursor = conn.cursor()
+    
+    # deleting table from database
     cursor.execute(f"DROP TABLE {db_name}")
 
     conn.commit()
     conn.close()
 
 def delete_records(db_url, db_name, rid):
+
+    # establishing connection
     conn = sqlite3.connect(db_url)
 
     cursor = conn.cursor()
+
+    # deleting records corresponding to rowid
     cursor.execute(f"DELETE FROM {db_name} WHERE rowid = {rid}")
 
     conn.commit()
     conn.close()
 
 def show_db_entries(db_url, db_name):
+
+    # establishing connection
     conn = sqlite3.connect(db_url)
+
     cursor = conn.cursor()
 
+    # selecting entries with rowid
     cursor.execute(f"SELECT rowid, * FROM {db_name}")
 
+    # fetching details
     items = cursor.fetchall()
 
+    # printing items
     print(items)        

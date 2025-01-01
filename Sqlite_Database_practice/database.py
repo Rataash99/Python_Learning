@@ -64,25 +64,34 @@ entities = [
     "last_name text",
     "email text"
 ]
-# opc.create_table(url, db_name, entities)
+# creating table
+opc.create_table(url, db_name, entities)
 
-# row_data = ("Rohit", "Singh", "rohit.singh11299@gmail.com")
-# opc.insert_one(row_data, url, db_name)
+# single data to be inserted in table 
+row_data = ("Rohit", "Singh", "rohit.singh11299@gmail.com")
+
+# inserting in table
+opc.insert_one(row_data, url, db_name)
 
 data = [
     ("Rahul", "Singh", "rahul.singh349349@gmail.com"),
     ("Sarla", "Singh", "sarlarr@gmail.com"),
     ("Nitin", "Kumar", "nitin.kumar@gmail.com")
 ]
-# opc.insert_many(data, url, db_name)
 
-# entity = "first_name"
-# change = "salman"
-# rowid = 3
+# inserting in table
+opc.insert_many(data, url, db_name)
 
-# opc.update_table(entity, change, rowid, url, db_name)
+entity = "first_name"
+change = "salman"
+rowid = 3
 
-# opc.delete_records(url, db_name, 3)
-# opc.delete_table(url, db_name)
+# updating table
+opc.update_table(entity, change, rowid, url, db_name)
+
+# # deleting record corresponding to row id
+opc.delete_records(url, db_name, 3)
+
+# # opc.delete_table(url, db_name)
 
 opc.show_db_entries(url, db_name)
