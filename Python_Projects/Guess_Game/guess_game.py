@@ -1,5 +1,6 @@
 import random
 
+guess = 1
 
 def generate_random_guess(guess):
     random_guess = random.randint(0, guess)
@@ -22,3 +23,6 @@ while True:
 
     else:
         print("you got it wrong! :(\n")
+        guess += 1
+
+print(f"You go it right in {guess} guesses!\n")
