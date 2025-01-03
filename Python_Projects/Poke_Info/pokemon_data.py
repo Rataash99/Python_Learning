@@ -53,6 +53,7 @@ def get_moves(data):
         name = move.get('name')
 
         moves.append(name)
+    return moves
 
 pokemons = [] 
 

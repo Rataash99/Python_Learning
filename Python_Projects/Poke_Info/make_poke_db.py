@@ -1,20 +1,18 @@
-from create_poke_db import create_table, insert_data
-from pokemon_data import pokemons as pokeys, get_poke_list
+from create_poke_db import create_table, insert_data, print_data
+from pokemon_data import pokemons
 
-url = "/db/pokemons.db"
+url = "./db/pokemon.db"
 db_name = "pokemons"
 
 entities = [
-    "name",
-    "abilities",
-    "base_experience",
-    "forms",
-    "height",
-    "moves"
+    "name text",
+    "abilities text",
+    "base_experience integer",
+    "forms text",
+    "height integer",
+    "moves text"
 ]
-print('successful')
-
-# pokemons = get_poke_list(pokeys)
-
 # create_table(url, db_name, entities)
-# insert_data(url, db_name, pokemons)
+insert_data(url, db_name, pokemons)
+
+print_data(url, db_name)
