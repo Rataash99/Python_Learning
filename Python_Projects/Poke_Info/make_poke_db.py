@@ -1,3 +1,6 @@
+"""
+creating and inserting to database with given entities
+"""
 from create_poke_db import create_table, insert_data, print_data
 from pokemon_data import pokemons
 
@@ -12,7 +15,7 @@ entities = [
     "height integer",
     "moves text"
 ]
-# create_table(url, db_name, entities)
+create_table(url, db_name, entities)
 insert_data(url, db_name, pokemons)
 
 print_data(url, db_name)

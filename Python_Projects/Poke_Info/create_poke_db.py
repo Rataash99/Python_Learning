@@ -1,3 +1,6 @@
+"""
+This file has functions for creating, inserting and printing table using sqlite
+"""
 import sqlite3
 import json
 
